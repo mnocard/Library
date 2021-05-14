@@ -3,7 +3,7 @@ using System;
 
 namespace Library.WcfService.Services
 {
-    public class CalculatorService : ICalculator
+    public class Calculator : ICalculator
     {
         public double Add(double n1, double n2)
         {
