@@ -1,14 +1,20 @@
 ﻿using DOfficeCore.Infrastructure.Commands;
 using DOfficeCore.ViewModels.Core;
-using Library.Wpf.Infrastructure.Services;
+using Library.Wpf.Infrastructure.Interfaces;
 using System.Windows.Input;
 
 namespace Library.Wpf.ViewModel
 {
     class MainWindowViewModel : ViewModelBase
     {
-        public MainWindowViewModel()
+        #region Поля
+        private IServiceManager testService;
+        #endregion
+
+        public MainWindowViewModel(IServiceManager serviceManager)
         {
+            testService = serviceManager;
+
             #region Команды
             ChangeTitleCommand = new LambdaCommand(OnChangeTitleCommandExecuted, CanChangeTitleCommandExecute);
             ServiceAddTestCommand = new LambdaCommand(OnServiceAddTestCommandExecuted, CanServiceAddTestCommandExecute);
@@ -95,7 +101,7 @@ namespace Library.Wpf.ViewModel
         /// <summary>Тест сервиса</summary>
         private void OnServiceAddTestCommandExecuted(object parameter)
         {
-            var service = new ServiceManager().GetTestService();
+            var service = testService.GetTestService();
 
             NumB = service.Add(double.Parse(NumA), double.Parse(NumB)).ToString();
         }
