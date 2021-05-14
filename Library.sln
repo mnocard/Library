@@ -14,6 +14,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.DAL", "Services\Library.DAL\Library.DAL.csproj", "{6F5950F6-0F8A-48F6-873B-BC076D35854B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Wpf", "UI\Library.Wpf\Library.Wpf.csproj", "{B4D6A540-FE6D-49FC-8A15-6B72395BEEAA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F69BA4D0-1E8D-4DFB-830A-D979D7AC6646} = {F69BA4D0-1E8D-4DFB-830A-D979D7AC6646}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.WcfService", "Services\Library.WcfService\Library.WcfService.csproj", "{F69BA4D0-1E8D-4DFB-830A-D979D7AC6646}"
 EndProject
