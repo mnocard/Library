@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{ACFD12EB-5AAE-482A-89EE-167E8F93916F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{0CCEB4DA-A39E-4EA3-8E38-683B8402D159}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{424F5C82-D51B-4070-A836-F4D8BEBCEBE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Domain", "Common\Library.Domain\Library.Domain.csproj", "{8D4295BC-5A17-4BA4-99E5-22D31A29644D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8D4295BC-5A17-4BA4-99E5-22D31A29644D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D4295BC-5A17-4BA4-99E5-22D31A29644D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D4295BC-5A17-4BA4-99E5-22D31A29644D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D4295BC-5A17-4BA4-99E5-22D31A29644D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8D4295BC-5A17-4BA4-99E5-22D31A29644D} = {ACFD12EB-5AAE-482A-89EE-167E8F93916F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E5AE2520-8CAC-4E85-BBD0-CD9D5512A1AF}
+	EndGlobalSection
+EndGlobal
