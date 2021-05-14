@@ -9,11 +9,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{0C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{424F5C82-D51B-4070-A836-F4D8BEBCEBE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Domain", "Common\Library.Domain\Library.Domain.csproj", "{5BE7FD94-D21C-41A1-A0FA-58A39FBA3D68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.Domain", "Common\Library.Domain\Library.Domain.csproj", "{5BE7FD94-D21C-41A1-A0FA-58A39FBA3D68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.DAL", "Services\Library.DAL\Library.DAL.csproj", "{6F5950F6-0F8A-48F6-873B-BC076D35854B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.DAL", "Services\Library.DAL\Library.DAL.csproj", "{6F5950F6-0F8A-48F6-873B-BC076D35854B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Wpf", "UI\Library.Wpf\Library.Wpf.csproj", "{B4D6A540-FE6D-49FC-8A15-6B72395BEEAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.WcfService", "Services\Library.WcfService\Library.WcfService.csproj", "{F69BA4D0-1E8D-4DFB-830A-D979D7AC6646}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{B4D6A540-FE6D-49FC-8A15-6B72395BEEAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4D6A540-FE6D-49FC-8A15-6B72395BEEAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4D6A540-FE6D-49FC-8A15-6B72395BEEAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F69BA4D0-1E8D-4DFB-830A-D979D7AC6646}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F69BA4D0-1E8D-4DFB-830A-D979D7AC6646}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F69BA4D0-1E8D-4DFB-830A-D979D7AC6646}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F69BA4D0-1E8D-4DFB-830A-D979D7AC6646}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +47,7 @@ Global
 		{5BE7FD94-D21C-41A1-A0FA-58A39FBA3D68} = {ACFD12EB-5AAE-482A-89EE-167E8F93916F}
 		{6F5950F6-0F8A-48F6-873B-BC076D35854B} = {0CCEB4DA-A39E-4EA3-8E38-683B8402D159}
 		{B4D6A540-FE6D-49FC-8A15-6B72395BEEAA} = {424F5C82-D51B-4070-A836-F4D8BEBCEBE7}
+		{F69BA4D0-1E8D-4DFB-830A-D979D7AC6646} = {0CCEB4DA-A39E-4EA3-8E38-683B8402D159}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E5AE2520-8CAC-4E85-BBD0-CD9D5512A1AF}
