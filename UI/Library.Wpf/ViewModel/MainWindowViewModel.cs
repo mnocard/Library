@@ -1,5 +1,6 @@
 ﻿using DOfficeCore.Infrastructure.Commands;
 using DOfficeCore.ViewModels.Core;
+using Library.Wpf.Infrastructure.Services;
 using System.Windows.Input;
 
 namespace Library.Wpf.ViewModel
@@ -10,10 +11,12 @@ namespace Library.Wpf.ViewModel
         {
             #region Команды
             ChangeTitleCommand = new LambdaCommand(OnChangeTitleCommandExecuted, CanChangeTitleCommandExecute);
+            ServiceAddTestCommand = new LambdaCommand(OnServiceAddTestCommandExecuted, CanServiceAddTestCommandExecute);
             #endregion
         }
 
         #region Свойства
+        #region Тест
 
         #region Заголовок окна
         /// <summary>Заголовок окна</summary>
@@ -36,10 +39,40 @@ namespace Library.Wpf.ViewModel
 
         #endregion
 
+
+        #region NumA : string - Первое число
+
+        /// <summary>Первое число</summary>
+        private string _NumA;
+
+        /// <summary>Первое число</summary>
+        public string NumA
+        {
+            get => _NumA;
+            set => Set(ref _NumA, value);
+        }
+
+        #endregion
+
+        #region NumB : string - Второе число
+
+        /// <summary>Второе число</summary>
+        private string _NumB;
+
+        /// <summary>Второе число</summary>
+        public string NumB
+        {
+            get => _NumB;
+            set => Set(ref _NumB, value);
+        }
+
+        #endregion
+
+        #endregion
+
         #endregion
 
         #region Команды
-
 
         #region Изменение заголовка окна
         /// <summary>Изменение заголовка окна</summary>
@@ -51,6 +84,23 @@ namespace Library.Wpf.ViewModel
         }
 
         private bool CanChangeTitleCommandExecute(object parameter) => true;
+
+
+        #endregion
+
+
+        #region Тест сервиса
+        /// <summary>Тест сервиса</summary>
+        public ICommand ServiceAddTestCommand { get; }
+        /// <summary>Тест сервиса</summary>
+        private void OnServiceAddTestCommandExecuted(object parameter)
+        {
+            var service = new ServiceManager().GetTestService();
+
+            NumB = service.Add(double.Parse(NumA), double.Parse(NumB)).ToString();
+        }
+
+        private bool CanServiceAddTestCommandExecute(object parameter) => true;
 
 
         #endregion

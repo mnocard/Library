@@ -16,6 +16,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -28,11 +29,19 @@
             VerticalAlignment="Stretch"
             HorizontalContentAlignment="Center"
             VerticalContentAlignment="Center"
-            Text="{Binding Path=TbTest}" />
-        <Button
+            Text="{Binding Path=NumA}" />
+        <TextBox
             Grid.Row="0"
             Grid.Column="1"
-            Command="{Binding ChangeTitleCommand}"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            Text="{Binding Path=NumB}" />
+        <Button
+            Grid.Row="0"
+            Grid.Column="2"
+            Command="{Binding ServiceAddTestCommand}"
             Content="Test set title" />
     </Grid>
 </Window>

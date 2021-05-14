@@ -39,6 +39,7 @@ namespace Library.WcfService.Host
             catch (CommunicationException ce)
             {
                 Console.WriteLine("An exception occurred: {0}", ce.Message);
+                Console.ReadLine();
                 selfHost.Abort();
             }
         }
