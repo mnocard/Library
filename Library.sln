@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Wpf", "UI\Library.W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.WcfService", "Services\Library.WcfService\Library.WcfService.csproj", "{F69BA4D0-1E8D-4DFB-830A-D979D7AC6646}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.WcfService.Host", "Services\Library.WcfService.Host\Library.WcfService.Host.csproj", "{6EF0E8C0-367D-44BD-BB69-1CFAF76AABCF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{F69BA4D0-1E8D-4DFB-830A-D979D7AC6646}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F69BA4D0-1E8D-4DFB-830A-D979D7AC6646}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F69BA4D0-1E8D-4DFB-830A-D979D7AC6646}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EF0E8C0-367D-44BD-BB69-1CFAF76AABCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EF0E8C0-367D-44BD-BB69-1CFAF76AABCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EF0E8C0-367D-44BD-BB69-1CFAF76AABCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EF0E8C0-367D-44BD-BB69-1CFAF76AABCF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{6F5950F6-0F8A-48F6-873B-BC076D35854B} = {0CCEB4DA-A39E-4EA3-8E38-683B8402D159}
 		{B4D6A540-FE6D-49FC-8A15-6B72395BEEAA} = {424F5C82-D51B-4070-A836-F4D8BEBCEBE7}
 		{F69BA4D0-1E8D-4DFB-830A-D979D7AC6646} = {0CCEB4DA-A39E-4EA3-8E38-683B8402D159}
+		{6EF0E8C0-367D-44BD-BB69-1CFAF76AABCF} = {0CCEB4DA-A39E-4EA3-8E38-683B8402D159}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E5AE2520-8CAC-4E85-BBD0-CD9D5512A1AF}
