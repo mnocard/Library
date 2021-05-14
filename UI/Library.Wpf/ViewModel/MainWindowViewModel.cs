@@ -1,9 +1,6 @@
-﻿using DOfficeCore.ViewModels.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DOfficeCore.Infrastructure.Commands;
+using DOfficeCore.ViewModels.Core;
+using System.Windows.Input;
 
 namespace Library.Wpf.ViewModel
 {
@@ -11,7 +8,9 @@ namespace Library.Wpf.ViewModel
     {
         public MainWindowViewModel()
         {
-
+            #region Команды
+            ChangeTitleCommand = new LambdaCommand(OnChangeTitleCommandExecuted, CanChangeTitleCommandExecute);
+            #endregion
         }
 
         #region Свойства
@@ -26,8 +25,35 @@ namespace Library.Wpf.ViewModel
             set => Set(ref _Title, value);
         }
 
+        /// <summary>Тестовый текстбокс</summary>
+        private string _TbTest = "Тестовый текстбокс";
+        /// <summary>Тестовый текстбокс</summary>
+        public string TbTest
+        {
+            get => _TbTest;
+            set => Set(ref _TbTest, value);
+        }
+
         #endregion
 
+        #endregion
+
+        #region Команды
+
+
+        #region Изменение заголовка окна
+        /// <summary>Изменение заголовка окна</summary>
+        public ICommand ChangeTitleCommand { get; }
+        /// <summary>Изменение заголовка окна</summary>
+        private void OnChangeTitleCommandExecuted(object parameter)
+        {
+            Title = TbTest;
+        }
+
+        private bool CanChangeTitleCommandExecute(object parameter) => true;
+
+
+        #endregion
         #endregion
     }
 }
