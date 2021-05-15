@@ -1,10 +1,7 @@
-﻿using Library.WcfService.Host.HostService;
-using Library.WcfService.Interfaces;
-using Library.WcfService.Services;
-using System;
-using System.ServiceModel;
-using System.ServiceModel.Description;
-using System.Threading;
+﻿using Library.DAL;
+using Library.WcfService.Host.HostService;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace Library.WcfService.Host
@@ -16,7 +13,18 @@ namespace Library.WcfService.Host
             var th = new TestHost();
             await Task.Run(() => th.Initialize());
 
+            var db = new DBInitializer();
+            await db.Initialize(GetConnectionString());
+        }
 
+        private static string GetConnectionString()
+        {
+            var configBuilder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json");
+
+            var config = configBuilder.Build();
+            return config.GetConnectionString("default");
         }
     }
 }
