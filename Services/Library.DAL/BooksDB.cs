@@ -6,9 +6,9 @@ using System.Text;
 
 namespace Library.DAL
 {
-    public class LibraryDB : DbContext
+    public class BooksDB : DbContext
     {
-        public LibraryDB(DbContextOptions opt) : base(opt) { }
+        public BooksDB(DbContextOptions<BooksDB> opt) : base(opt) { }
 
         public DbSet<Book> Books { get; set; }
         public DbSet<Author> Authors { get; set; }

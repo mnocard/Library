@@ -5,9 +5,10 @@ namespace Library.Domain.Entities
 {
     public class Genre
     {
-        [Required]
+        [Key, MaxLength(50)]
         public string GenreName { get; set; }
+        [MaxLength(500)]
         public string Description { get; set; }
-        public ICollection<Book> Books { get; set; }
+        public virtual ICollection<Book> Books { get; set; }
     }
 }

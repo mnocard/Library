@@ -1,18 +1,20 @@
-﻿using Library.Domain.Entities.Base;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Library.Domain.Entities
 {
-    public class Book : Entity
+    public class Book
     {
-        [Required]
+        [Key]
+        public int BookID { get; set; }
+        [Required, MaxLength(200)]
         public string Name { get; set; }
+        [MaxLength(500)]
         public string Description { get; set; }
-        [Required]
+        [Required, MaxLength(4)]
         public string Year { get; set; }
-        public ICollection<Genre> Genres { get; set; }
-        public ICollection<Author> Authors { get; set; }
-        public Publisher Publisher { get; set; }
+        public virtual ICollection<Genre> Genres { get; set; }
+        public virtual ICollection<Author> Authors { get; set; }
+        public virtual Publisher Publisher { get; set; }
     }
 }
