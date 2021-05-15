@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <Compile Include="HostService\TestHost.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Library.WcfService\Library.WcfService.csproj">
