@@ -1,6 +1,8 @@
 ﻿using Library.DAL;
 using Library.WcfService.Host.HostService;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -10,11 +12,11 @@ namespace Library.WcfService.Host
     {
         static async Task Main(string[] args)
         {
-            var th = new TestHost();
-            await Task.Run(() => th.Initialize());
+            var dbInit = new DBInitializer();
+            await dbInit.Initialize(GetConnectionString());
 
-            var db = new DBInitializer();
-            await db.Initialize(GetConnectionString());
+            //var th = new TestHost();
+            //await Task.Run(() => th.Initialize());
         }
 
         private static string GetConnectionString()

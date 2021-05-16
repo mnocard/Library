@@ -8,7 +8,7 @@ namespace Library.DAL
     {
         public async Task Initialize(string ConnectionString)
         {
-            using(var db = new BooksDB(new DbContextOptionsBuilder<BooksDB>().UseSqlServer(ConnectionString).Options))
+            using (var db = new BooksDB(ConnectionString))
             {
                 var created = await db.Database.EnsureCreatedAsync();
             }
