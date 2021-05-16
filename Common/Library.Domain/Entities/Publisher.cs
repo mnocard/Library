@@ -13,6 +13,10 @@ namespace Library.Domain.Entities
         public string EMail { get; set; }
         [MaxLength(50)]
         public string Phone { get; set; }
-        public virtual ICollection<Book> Books { get; set; }
+        public List<Book> Books { get; set; }
+        public Publisher()
+        {
+            Books = new List<Book>();
+        }
     }
 }

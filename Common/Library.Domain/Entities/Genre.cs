@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Library.Domain.Connections;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Library.Domain.Entities
@@ -9,6 +10,10 @@ namespace Library.Domain.Entities
         public string GenreName { get; set; }
         [MaxLength(500)]
         public string Description { get; set; }
-        public virtual ICollection<Book> Books { get; set; }
+        public List<Genres_Books> Genres_Books { get; set; }
+        public Genre()
+        {
+            Genres_Books = new List<Genres_Books>();
+        }
     }
 }

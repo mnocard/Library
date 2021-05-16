@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Library.Domain.Connections;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -15,6 +16,11 @@ namespace Library.Domain.Entities
         [MaxLength(50)]
         public string MiddleName { get; set; }
         public DateTime? Birthday { get; set; }
-        public virtual ICollection<Book> Books { get; set; }
+        public List<Authors_Books> Authors_Books { get; set; }
+
+        public Author()
+        {
+            Authors_Books = new List<Authors_Books>();
+        }
     }
 }
