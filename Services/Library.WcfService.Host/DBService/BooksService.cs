@@ -1,18 +1,18 @@
-﻿using Microsoft.Extensions.Configuration;
-using System.IO;
+﻿using Library.DAL;
+
+using System.Threading.Tasks;
 
 namespace Library.WcfService.Host.DBService
 {
     public class BooksService
     {
-        public static string GetConnectionString()
+        public static async Task BooksDBInitialize(string[] args)
         {
-            var configBuilder = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json");
-
-            var config = configBuilder.Build();
-            return config.GetConnectionString("default");
+            var dbInitializer = new DBInitializer();
+            using (var db = dbInitializer.CreateDbContext(args))
+            {
+                var created = await db.Database.EnsureCreatedAsync();
+            }
         }
     }
 }

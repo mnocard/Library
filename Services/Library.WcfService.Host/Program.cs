@@ -1,8 +1,4 @@
-﻿using Library.DAL;
-
-using Microsoft.Extensions.Configuration;
-
-using System.IO;
+﻿using Library.WcfService.Host.DBService;
 using System.Threading.Tasks;
 
 namespace Library.WcfService.Host
@@ -11,11 +7,7 @@ namespace Library.WcfService.Host
     {
         static async Task Main(string[] args)
         {
-            var dbInitializer = new DBInitializer();
-            using (var db = dbInitializer.CreateDbContext(args))
-            {
-                var created = await db.Database.EnsureCreatedAsync();
-            }
+            await BooksService.BooksDBInitialize(args);
 
             //var th = new TestHost();
             //await Task.Run(() => th.Initialize());
