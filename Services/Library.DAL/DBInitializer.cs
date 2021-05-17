@@ -1,17 +1,26 @@
-﻿using System.Threading.Tasks;
+﻿using System.IO;
+using System.Threading.Tasks;
+
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 
 namespace Library.DAL
 {
-    public class DBInitializer
+    public class DBInitializer : IDesignTimeDbContextFactory<BooksDB>
     {
-        public async Task Initialize(string ConnectionString)
+        public BooksDB CreateDbContext(string[] args)
         {
-            using (var db = new BooksDB(ConnectionString))
-            {
-                var created = await db.Database.EnsureCreatedAsync();
-            }
+            var configBuilder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json");
+
+            var config = configBuilder.Build();
+
+            var optionsBuilder = new DbContextOptionsBuilder();
+            optionsBuilder.UseSqlServer(config.GetConnectionString("default"));
+
+            return new BooksDB(optionsBuilder.Options);
         }
     }
 }

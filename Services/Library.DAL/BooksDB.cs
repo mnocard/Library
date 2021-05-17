@@ -6,22 +6,12 @@ namespace Library.DAL
 {
     public class BooksDB : DbContext
     {
-        private readonly string _ConnectionString;
-
-        public BooksDB(string ConnectionString)
-        {
-            _ConnectionString = ConnectionString;
-        }
+        public BooksDB(DbContextOptions opt) : base(opt) { }
 
         public DbSet<Book> Books { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Publisher> Publishers { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(_ConnectionString);
-        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
