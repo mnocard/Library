@@ -1,19 +1,25 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Library.Domain.Entities
 {
     public class Publisher
     {
-        [Key, MaxLength(200)]
+        [Key, Column(TypeName = "varchar(200)")]
         public string PublisherName { get; set; }
-        [Required, MaxLength(200)]
+
+        [Required, Column("Adress", TypeName = "varchar(200)")]
         public string Address { get; set; }
-        [MaxLength(100)]
+
+        [Column(TypeName = "varchar(100)")]
         public string EMail { get; set; }
-        [MaxLength(50)]
+
+        [Column(TypeName = "varchar(50)")]
         public string Phone { get; set; }
+
         public List<Book> Books { get; set; }
+
         public Publisher()
         {
             Books = new List<Book>();

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Library.DAL.Migrations
 {
-    public partial class Initial : Migration
+    public partial class NewInitial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,10 +13,10 @@ namespace Library.DAL.Migrations
                 {
                     AuthorID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Surname = table.Column<string>(maxLength: 50, nullable: false),
-                    Name = table.Column<string>(maxLength: 50, nullable: false),
-                    MiddleName = table.Column<string>(maxLength: 50, nullable: true),
-                    Birthday = table.Column<DateTime>(nullable: true)
+                    Surname = table.Column<string>(type: "varchar(50)", nullable: false),
+                    Name = table.Column<string>(type: "varchar(50)", nullable: false),
+                    MiddleName = table.Column<string>(type: "varchar(50)", nullable: true),
+                    Birthday = table.Column<DateTime>(type: "date", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -27,8 +27,8 @@ namespace Library.DAL.Migrations
                 name: "Genres",
                 columns: table => new
                 {
-                    GenreName = table.Column<string>(maxLength: 50, nullable: false),
-                    Description = table.Column<string>(maxLength: 500, nullable: true)
+                    GenreName = table.Column<string>(type: "varchar(50)", nullable: false),
+                    Description = table.Column<string>(type: "varchar(500)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -39,10 +39,10 @@ namespace Library.DAL.Migrations
                 name: "Publishers",
                 columns: table => new
                 {
-                    PublisherName = table.Column<string>(maxLength: 200, nullable: false),
-                    Address = table.Column<string>(maxLength: 200, nullable: false),
-                    EMail = table.Column<string>(maxLength: 100, nullable: true),
-                    Phone = table.Column<string>(maxLength: 50, nullable: true)
+                    PublisherName = table.Column<string>(type: "varchar(200)", nullable: false),
+                    Adress = table.Column<string>(type: "varchar(200)", nullable: false),
+                    EMail = table.Column<string>(type: "varchar(100)", nullable: true),
+                    Phone = table.Column<string>(type: "varchar(50)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -55,9 +55,9 @@ namespace Library.DAL.Migrations
                 {
                     BookID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(maxLength: 200, nullable: false),
-                    Description = table.Column<string>(maxLength: 500, nullable: true),
-                    Year = table.Column<string>(maxLength: 4, nullable: false),
+                    Name = table.Column<string>(type: "varchar(200)", nullable: false),
+                    Description = table.Column<string>(type: "varchar(500)", nullable: true),
+                    Year = table.Column<string>(type: "varchar(4)", nullable: false),
                     PublisherName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>

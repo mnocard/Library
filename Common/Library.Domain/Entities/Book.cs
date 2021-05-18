@@ -1,6 +1,7 @@
 ﻿using Library.Domain.Connections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Library.Domain.Entities
 {
@@ -8,15 +9,22 @@ namespace Library.Domain.Entities
     {
         [Key]
         public int BookID { get; set; }
-        [Required, MaxLength(200)]
+
+        [Required, Column(TypeName = "varchar(200)")]
         public string Name { get; set; }
-        [MaxLength(500)]
+
+        [Column(TypeName = "varchar(500)")]
         public string Description { get; set; }
-        [Required, MaxLength(4)]
+
+        [Required, Column(TypeName = "varchar(4)")]
         public string Year { get; set; }
+
         public List<Genres_Books> Genres_Books { get; set; }
+
         public List<Authors_Books> Authors_Books { get; set; }
+
         public Publisher Publisher { get; set; }
+
         public Book()
         {
             Genres_Books = new List<Genres_Books>();

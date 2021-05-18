@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Library.Domain.Entities
 {
@@ -9,13 +10,19 @@ namespace Library.Domain.Entities
     {
         [Key]
         public int AuthorID { get; set; }
-        [Required, MaxLength(50)]
+
+        [Required, Column(TypeName = "varchar(50)")]
         public string Surname { get; set; }
-        [Required, MaxLength(50)]
+
+        [Required, Column(TypeName = "varchar(50)")]
         public string Name { get; set; }
-        [MaxLength(50)]
+
+        [Column(TypeName = "varchar(50)")]
         public string MiddleName { get; set; }
+
+        [Column(TypeName = "date")]
         public DateTime? Birthday { get; set; }
+
         public List<Authors_Books> Authors_Books { get; set; }
 
         public Author()
