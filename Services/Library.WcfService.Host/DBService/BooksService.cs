@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Text;
 using System;
 using System.IO;
+using Microsoft.Data.SqlClient;
 
 namespace Library.WcfService.Host.DBService
 {
@@ -26,6 +27,7 @@ namespace Library.WcfService.Host.DBService
             using (var db = dbInitializer.CreateDbContext(args))
             {
                 db.Database.ExecuteSqlRaw("ALTER DATABASE CURRENT COLLATE Cyrillic_General_CI_AS");
+                SqlConnection.ClearAllPools();
                 db.SaveChanges();
             }
         }
