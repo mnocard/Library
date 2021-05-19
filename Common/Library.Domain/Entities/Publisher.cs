@@ -9,7 +9,7 @@ namespace Library.Domain.Entities
         [Key, Column(TypeName = "varchar(200)")]
         public string PublisherName { get; set; }
 
-        [Required, Column("Adress", TypeName = "varchar(200)")]
+        [Required, Column("Adress"), MaxLength(200)]
         public string Address { get; set; }
 
         [Column(TypeName = "varchar(100)")]

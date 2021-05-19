@@ -1,4 +1,6 @@
 ﻿using Library.WcfService.Host.DBService;
+using Library.WcfService.Host.HostService;
+
 using System.Threading.Tasks;
 
 namespace Library.WcfService.Host
@@ -7,10 +9,12 @@ namespace Library.WcfService.Host
     {
         static async Task Main(string[] args)
         {
-            await BooksService.BooksDBInitialize(args);
+            BooksService.BooksDBCreate(args);
+            BooksService.ChangeDBCollate(args);
+            BooksService.FillDbWithSqlScript(args);
 
-            //var th = new TestHost();
-            //await Task.Run(() => th.Initialize());
+            var th = new TestHost();
+            await Task.Run(() => th.Initialize());
         }
     }
 }
