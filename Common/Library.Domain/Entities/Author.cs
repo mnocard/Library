@@ -11,13 +11,13 @@ namespace Library.Domain.Entities
         [Key]
         public int AuthorID { get; set; }
 
-        [Required, Column(TypeName = "varchar(50)")]
+        [Required, MaxLength(50)]
         public string Surname { get; set; }
 
-        [Required, Column(TypeName = "varchar(50)")]
+        [Required, MaxLength(50)]
         public string Name { get; set; }
 
-        [Column(TypeName = "varchar(50)")]
+        [MaxLength(50)]
         public string MiddleName { get; set; }
 
         [Column(TypeName = "date")]

@@ -7,10 +7,10 @@ namespace Library.Domain.Entities
 {
     public class Genre
     {
-        [Key, Column(TypeName = "varchar(50)")]
+        [Key, MaxLength(50)]
         public string GenreName { get; set; }
 
-        [Column(TypeName = "varchar(500)")]
+        [MaxLength(500)]
         public string Description { get; set; }
 
         public List<Genres_Books> Genres_Books { get; set; }

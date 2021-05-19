@@ -6,16 +6,16 @@ namespace Library.Domain.Entities
 {
     public class Publisher
     {
-        [Key, Column(TypeName = "varchar(200)")]
+        [Key, MaxLength(200)]
         public string PublisherName { get; set; }
 
         [Required, Column("Adress"), MaxLength(200)]
         public string Address { get; set; }
 
-        [Column(TypeName = "varchar(100)")]
+        [MaxLength(100)]
         public string EMail { get; set; }
 
-        [Column(TypeName = "varchar(50)")]
+        [MaxLength(50)]
         public string Phone { get; set; }
 
         public List<Book> Books { get; set; }
