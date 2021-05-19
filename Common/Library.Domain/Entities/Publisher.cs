@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Library.Domain.Entities
 {
@@ -7,7 +8,7 @@ namespace Library.Domain.Entities
     {
         [Key, MaxLength(200)]
         public string PublisherName { get; set; }
-        [Required, MaxLength(200)]
+        [Required, Column("Adress"), MaxLength(200)]
         public string Address { get; set; }
         [MaxLength(100)]
         public string EMail { get; set; }
