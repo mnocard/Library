@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Library.DAL.Migrations
 {
     [DbContext(typeof(BooksDB))]
-    [Migration("20210517060426_Initial")]
-    partial class Initial
+    [Migration("20210518061100_NewInitial")]
+    partial class NewInitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -39,7 +39,7 @@ namespace Library.DAL.Migrations
             modelBuilder.Entity("Library.Domain.Connections.Genres_Books", b =>
                 {
                     b.Property<string>("GenreName")
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("varchar(50)");
 
                     b.Property<int>("BookID")
                         .HasColumnType("int");
@@ -59,21 +59,18 @@ namespace Library.DAL.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime?>("Birthday")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("date");
 
                     b.Property<string>("MiddleName")
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("Surname")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasColumnType("varchar(50)");
 
                     b.HasKey("AuthorID");
 
@@ -88,21 +85,18 @@ namespace Library.DAL.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(500)")
-                        .HasMaxLength(500);
+                        .HasColumnType("varchar(500)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
+                        .HasColumnType("varchar(200)");
 
                     b.Property<string>("PublisherName")
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("varchar(200)");
 
                     b.Property<string>("Year")
                         .IsRequired()
-                        .HasColumnType("nvarchar(4)")
-                        .HasMaxLength(4);
+                        .HasColumnType("varchar(4)");
 
                     b.HasKey("BookID");
 
@@ -114,12 +108,10 @@ namespace Library.DAL.Migrations
             modelBuilder.Entity("Library.Domain.Entities.Genre", b =>
                 {
                     b.Property<string>("GenreName")
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(500)")
-                        .HasMaxLength(500);
+                        .HasColumnType("varchar(500)");
 
                     b.HasKey("GenreName");
 
@@ -129,21 +121,18 @@ namespace Library.DAL.Migrations
             modelBuilder.Entity("Library.Domain.Entities.Publisher", b =>
                 {
                     b.Property<string>("PublisherName")
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
+                        .HasColumnType("varchar(200)");
 
                     b.Property<string>("Address")
                         .IsRequired()
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
+                        .HasColumnName("Adress")
+                        .HasColumnType("varchar(200)");
 
                     b.Property<string>("EMail")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("Phone")
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasColumnType("varchar(50)");
 
                     b.HasKey("PublisherName");
 
