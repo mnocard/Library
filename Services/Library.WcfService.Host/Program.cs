@@ -9,10 +9,6 @@ namespace Library.WcfService.Host
     {
         static async Task Main(string[] args)
         {
-            BooksService.BooksDBCreate(args);
-            BooksService.ChangeDBCollate(args);
-            BooksService.FillDbWithSqlScript(args);
-
             var th = new TestHost();
             await Task.Run(() => th.Initialize());
         }

@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Library.DAL
 {
-    public class BooksDB : DbContext
+    public class BooksDBContext : DbContext
     {
-        public BooksDB(DbContextOptions opt) : base(opt) { }
+        public BooksDBContext(DbContextOptions opt) : base(opt) { }
 
         public DbSet<Book> Books { get; set; }
         public DbSet<Author> Authors { get; set; }
