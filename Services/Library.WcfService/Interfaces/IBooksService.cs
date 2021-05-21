@@ -1,20 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.ServiceModel;
 
-using Library.Domain.Entities;
-
 namespace Library.WcfService.Interfaces
 {
     [ServiceContract]
     public interface IBooksService
     {
         [OperationContract]
-        IEnumerable<Book> GetBooksWithoutAuthor();
+        IEnumerable<BookType> GetBooksWithoutAuthor();
 
         [OperationContract]
-        IEnumerable<Book> GetBooksWithFewGenres();
+        IEnumerable<BookType> GetBooksWithFewGenres();
 
         [OperationContract]
-        IEnumerable<Publisher> GetPublichsersBooks();
+        IEnumerable<PublisherType> GetPublichsersBooks();
     }
 }
