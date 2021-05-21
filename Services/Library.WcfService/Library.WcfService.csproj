@@ -57,6 +57,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataContractExtensions\EntitiesMapper.cs" />
     <Compile Include="DataContracts\Authors_BooksType.cs" />
     <Compile Include="DataContracts\AuthorType.cs" />
     <Compile Include="DataContracts\BookType.cs" />
@@ -79,9 +80,7 @@
       <Name>Library.DAL</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataContractExtensions\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>

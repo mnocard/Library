@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 using Library.DAL.Service;
-using Library.Domain.Entities;
+using Library.WcfService.DataContractExtensions;
 using Library.WcfService.Interfaces;
 
 namespace Library.WcfService.Services
@@ -14,19 +15,22 @@ namespace Library.WcfService.Services
             _Service = new BooksDBService();
         }
 
-        public IEnumerable<Book> GetBooksWithFewGenres()
+        public IEnumerable<BookType> GetBooksWithFewGenres()
         {
-            return _Service.GetBooksWithFewGenres();
+            var result = _Service.GetBooksWithFewGenres();
+            return result.Select(b => b.ToDCT());
         }
 
-        public IEnumerable<Book> GetBooksWithoutAuthor()
+        public IEnumerable<BookType> GetBooksWithoutAuthor()
         {
-            return _Service.GetBooksWithoutAuthor();
+            var result = _Service.GetBooksWithoutAuthor();
+            return result.Select(b => b.ToDCT());
         }
 
-        public IEnumerable<Publisher> GetPublichsersBooks()
+        public IEnumerable<PublisherType> GetPublichsersBooks()
         {
-            return _Service.GetPublichsersBooks();
+            var result = _Service.GetPublichsersBooks();
+            return result.Select(b => b.ToDCT());
         }
     }
 }
