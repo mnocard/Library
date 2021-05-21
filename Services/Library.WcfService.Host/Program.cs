@@ -7,14 +7,10 @@ namespace Library.WcfService.Host
 {
     public class Program
     {
-        static async Task Main(string[] args)
+        static void Main(string[] args)
         {
-            BooksService.BooksDBCreate(args);
-            BooksService.ChangeDBCollate(args);
-            BooksService.FillDbWithSqlScript(args);
-
-            var th = new TestHost();
-            await Task.Run(() => th.Initialize());
+            var bs = new BooksService();
+            bs.Initialize();
         }
     }
 }
