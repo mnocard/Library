@@ -3,6 +3,8 @@
 namespace Library.WcfService.Interfaces
 {
     [DataContract]
+    [KnownType(typeof(AuthorType))]
+    [KnownType(typeof(BookType))]
     public class Authors_BooksType
     {
         [DataMember]

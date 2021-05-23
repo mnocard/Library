@@ -5,6 +5,8 @@ namespace Library.WcfService.Interfaces
 {
 
     [DataContract]
+    [KnownType(typeof(List<BookType>))]
+    [KnownType(typeof(BookType))]
     public class PublisherType
     {
         [DataMember]
@@ -20,11 +22,6 @@ namespace Library.WcfService.Interfaces
         public string Phone { get; set; }
 
         [DataMember]
-        public List<BookType> Books { get; set; }
-
-        public PublisherType()
-        {
-            Books = new List<BookType>();
-        }
+        public List<BookType> Books { get; set; } = new List<BookType>();
     }
 }
