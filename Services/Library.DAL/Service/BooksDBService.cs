@@ -14,7 +14,7 @@ namespace Library.DAL.Service
         {
             using (var db = new BooksDBInitializer().CreateDbContext(null))
             {
-                return db.Books.Where(b => b.Genres_Books.Count > 1).Select(b => b);
+                return db.Books.Where(b => b.Genres_Books.Count > 1).Select(b => b).ToList();
             }
         }
 
@@ -22,7 +22,7 @@ namespace Library.DAL.Service
         {
             using (var db = new BooksDBInitializer().CreateDbContext(null))
             {
-                return db.Books.Where(b => b.Authors_Books.Count == 0).Select(b => b);
+                return db.Books.Where(b => b.Authors_Books.Count == 0).Select(b => b).ToList();
             }
         }
 
@@ -30,7 +30,7 @@ namespace Library.DAL.Service
         {
             using (var db = new BooksDBInitializer().CreateDbContext(null))
             {
-                return db.Publishers.Include(p => p.Books);
+                return db.Publishers.Include(p => p.Books).ToList();
             }
         }
     }
