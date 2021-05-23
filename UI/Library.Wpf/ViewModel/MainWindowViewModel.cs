@@ -1,6 +1,9 @@
 ﻿using DOfficeCore.Infrastructure.Commands;
 using DOfficeCore.ViewModels.Core;
 using Library.Wpf.Infrastructure.Interfaces;
+using Library.Wpf.ServiceReference2;
+
+using System.Collections.Generic;
 using System.Windows.Input;
 
 namespace Library.Wpf.ViewModel
@@ -8,20 +11,52 @@ namespace Library.Wpf.ViewModel
     class MainWindowViewModel : ViewModelBase
     {
         #region Поля
-        private IServiceManager testService;
+        private IServiceManager _ServiceManager;
         #endregion
 
         public MainWindowViewModel(IServiceManager serviceManager)
         {
-            testService = serviceManager;
+            _ServiceManager = serviceManager;
 
             #region Команды
             ChangeTitleCommand = new LambdaCommand(OnChangeTitleCommandExecuted, CanChangeTitleCommandExecute);
             ServiceAddTestCommand = new LambdaCommand(OnServiceAddTestCommandExecuted, CanServiceAddTestCommandExecute);
+            GetBooksWithoutAuthorCommand = new LambdaCommand(OnGetBooksWithoutAuthorCommandExecuted, CanGetBooksWithoutAuthorCommandExecute);
+            GetBooksWithFewGenresCommand = new LambdaCommand(OnGetBooksWithFewGenresCommandExecuted, CanGetBooksWithFewGenresCommandExecute);
+            GetPublichsersBooksCommand = new LambdaCommand(OnGetPublichsersBooksCommandExecuted, CanGetPublichsersBooksCommandExecute);
             #endregion
         }
 
         #region Свойства
+
+        #region BooksWithoutAuthors : IEnumerable<Book> - Книги
+
+        /// <summary>Книги без авторов</summary>
+        private IEnumerable<BookType> _Books;
+
+        /// <summary>Книги без авторов</summary>
+        public IEnumerable<BookType> Books
+        {
+            get => _Books;
+            set => Set(ref _Books, value);
+        }
+
+        #endregion
+
+        #region Publishers : IEnumerable<PublisherType> - Издательства
+
+        /// <summary>Издательства</summary>
+        private IEnumerable<PublisherType> _Publishers;
+
+        /// <summary>Издательства</summary>
+        public IEnumerable<PublisherType> Publishers
+        {
+            get => _Publishers;
+            set => Set(ref _Publishers, value);
+        }
+
+        #endregion
+
         #region Тест
 
         #region Заголовок окна
@@ -44,7 +79,6 @@ namespace Library.Wpf.ViewModel
         }
 
         #endregion
-
 
         #region NumA : string - Первое число
 
@@ -88,12 +122,9 @@ namespace Library.Wpf.ViewModel
         {
             Title = TbTest;
         }
-
         private bool CanChangeTitleCommandExecute(object parameter) => true;
 
-
         #endregion
-
 
         #region Тест сервиса
         /// <summary>Тест сервиса</summary>
@@ -101,8 +132,7 @@ namespace Library.Wpf.ViewModel
         /// <summary>Тест сервиса</summary>
         private void OnServiceAddTestCommandExecuted(object parameter)
         {
-            var service = testService.GetTestService();
-
+            var service = _ServiceManager.GetTestService();
             NumB = service.Add(double.Parse(NumA), double.Parse(NumB)).ToString();
         }
 
@@ -110,6 +140,49 @@ namespace Library.Wpf.ViewModel
 
 
         #endregion
+
+        #region Получение книг, у которых не указан автор
+        /// <summary>Получение книг, у которых не указан автор</summary>
+        public ICommand GetBooksWithoutAuthorCommand { get; }
+        /// <summary>Получение книг, у которых не указан автор</summary>
+        private void OnGetBooksWithoutAuthorCommandExecuted(object parameter)
+        {
+            var service = _ServiceManager.GetBooksService();
+            Books = service.GetBooksWithoutAuthor();
+            service.Close();
+        }
+        private bool CanGetBooksWithoutAuthorCommandExecute(object parameter) => true;
+
+        #endregion
+
+        #region Получение книг, у которых несколько авторов
+        /// <summary>Получение книг, у которых несколько авторов</summary>
+        public ICommand GetBooksWithFewGenresCommand { get; }
+        /// <summary>Получение книг, у которых несколько авторов</summary>
+        private void OnGetBooksWithFewGenresCommandExecuted(object parameter)
+        {
+            var service = _ServiceManager.GetBooksService();
+            Books = service.GetBooksWithFewGenres();
+            service.Close();
+        }
+        private bool CanGetBooksWithFewGenresCommandExecute(object parameter) => true;
+
+        #endregion
+
+        #region Количество книг, написанных в определенном жанре для каждого из издательств
+        /// <summary>Количество книг, написанных в определенном жанре для каждого из издательств</summary>
+        public ICommand GetPublichsersBooksCommand { get; }
+        /// <summary>Количество книг, написанных в определенном жанре для каждого из издательств</summary>
+        private void OnGetPublichsersBooksCommandExecuted(object parameter)
+        {
+            var service = _ServiceManager.GetBooksService();
+            Publishers = service.GetPublichsersBooks();
+            service.Close();
+        }
+        private bool CanGetPublichsersBooksCommandExecute(object parameter) => true;
+
+        #endregion
+
         #endregion
     }
 }
