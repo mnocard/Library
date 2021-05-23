@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 using Library.Domain.Connections;
 using Library.Domain.Entities;
@@ -82,7 +83,7 @@ namespace Library.WcfService.DataContractExtensions
             return new AuthorType
             {
                 AuthorID = a.AuthorID,
-                Birthday = a.Birthday,
+                Birthday = a.Birthday ?? DateTime.MinValue,
                 MiddleName = a.MiddleName,
                 Name = a.Name,
                 Surname = a.Surname,
