@@ -60,6 +60,7 @@
     <Compile Include="DataContractExtensions\EntitiesMapper.cs" />
     <Compile Include="DataContracts\Authors_BooksType.cs" />
     <Compile Include="DataContracts\AuthorType.cs" />
+    <Compile Include="DataContracts\Books_PublishersType.cs" />
     <Compile Include="DataContracts\BookType.cs" />
     <Compile Include="DataContracts\Genres_BooksType.cs" />
     <Compile Include="DataContracts\GenreType.cs" />

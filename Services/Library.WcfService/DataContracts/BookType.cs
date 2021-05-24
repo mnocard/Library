@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace Library.WcfService.Interfaces
+namespace Library.WcfService.DataContracts
 {
     [DataContract]
     [KnownType(typeof(List<Genres_BooksType>))]
@@ -28,6 +28,9 @@ namespace Library.WcfService.Interfaces
 
         [DataMember]
         public List<Authors_BooksType> Authors_Books { get; set; } = new List<Authors_BooksType>();
+
+        [DataMember]
+        public string PublisherName { get; set; }
 
         [DataMember]
         public PublisherType Publisher { get; set; }
