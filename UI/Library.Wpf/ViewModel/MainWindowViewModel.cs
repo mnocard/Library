@@ -149,7 +149,6 @@ namespace Library.Wpf.ViewModel
         {
             var service = _ServiceManager.GetBooksService();
             Books = service.GetBooksWithoutAuthor();
-            service.Close();
         }
         private bool CanGetBooksWithoutAuthorCommandExecute(object parameter) => true;
 
@@ -163,7 +162,6 @@ namespace Library.Wpf.ViewModel
         {
             var service = _ServiceManager.GetBooksService();
             Books = service.GetBooksWithFewGenres();
-            service.Close();
         }
         private bool CanGetBooksWithFewGenresCommandExecute(object parameter) => true;
 
@@ -177,7 +175,6 @@ namespace Library.Wpf.ViewModel
         {
             var service = _ServiceManager.GetBooksService();
             Publishers = service.GetPublichsersBooks();
-            service.Close();
         }
         private bool CanGetPublichsersBooksCommandExecute(object parameter) => true;
 
