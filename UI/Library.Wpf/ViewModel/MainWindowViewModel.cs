@@ -1,9 +1,10 @@
 ﻿using DOfficeCore.Infrastructure.Commands;
 using DOfficeCore.ViewModels.Core;
 using Library.Wpf.Infrastructure.Interfaces;
-using Library.Wpf.ServiceReference2;
+using Library.Wpf.Model;
 
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Input;
 
 namespace Library.Wpf.ViewModel
@@ -32,10 +33,10 @@ namespace Library.Wpf.ViewModel
         #region BooksWithoutAuthors : IEnumerable<Book> - Книги
 
         /// <summary>Книги без авторов</summary>
-        private IEnumerable<BookType> _Books;
+        private ObservableCollection<Book> _Books;
 
         /// <summary>Книги без авторов</summary>
-        public IEnumerable<BookType> Books
+        public ObservableCollection<Book> Books
         {
             get => _Books;
             set => Set(ref _Books, value);
@@ -46,10 +47,10 @@ namespace Library.Wpf.ViewModel
         #region Publishers : IEnumerable<PublisherType> - Издательства
 
         /// <summary>Издательства</summary>
-        private IEnumerable<PublisherType> _Publishers;
+        private ObservableCollection<Publisher> _Publishers;
 
         /// <summary>Издательства</summary>
-        public IEnumerable<PublisherType> Publishers
+        public ObservableCollection<Publisher> Publishers
         {
             get => _Publishers;
             set => Set(ref _Publishers, value);
@@ -148,7 +149,8 @@ namespace Library.Wpf.ViewModel
         private void OnGetBooksWithoutAuthorCommandExecuted(object parameter)
         {
             var service = _ServiceManager.GetBooksService();
-            Books = service.GetBooksWithoutAuthor();
+            Books = new ObservableCollection<Book>(service.GetBooksWithoutAuthor().Select(b => b.ToVM()));
+            var x = 0;
         }
         private bool CanGetBooksWithoutAuthorCommandExecute(object parameter) => true;
 
@@ -161,7 +163,7 @@ namespace Library.Wpf.ViewModel
         private void OnGetBooksWithFewGenresCommandExecuted(object parameter)
         {
             var service = _ServiceManager.GetBooksService();
-            Books = service.GetBooksWithFewGenres();
+            Books = new ObservableCollection<Book>(service.GetBooksWithFewGenres().Select(b => b.ToVM()));
         }
         private bool CanGetBooksWithFewGenresCommandExecute(object parameter) => true;
 
@@ -174,7 +176,7 @@ namespace Library.Wpf.ViewModel
         private void OnGetPublichsersBooksCommandExecuted(object parameter)
         {
             var service = _ServiceManager.GetBooksService();
-            Publishers = service.GetPublichsersBooks();
+            Publishers = new ObservableCollection<Publisher>(service.GetPublichsersBooks().Select(b => b.ToVM()));
         }
         private bool CanGetPublichsersBooksCommandExecute(object parameter) => true;
 
