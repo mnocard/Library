@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Library.WcfService.Interfaces" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Library.WcfService.Interfaces" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Library.WcfService.DataContracts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Library.WcfService.DataContracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:complexType name="ArrayOfBookType">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="BookType" nillable="true" type="tns:BookType" />
@@ -14,6 +14,7 @@
       <xs:element minOccurs="0" name="Genres_Books" nillable="true" type="tns:ArrayOfGenres_BooksType" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Publisher" nillable="true" type="tns:PublisherType" />
+      <xs:element minOccurs="0" name="PublisherName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Year" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>

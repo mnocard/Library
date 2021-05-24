@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a733f401-1643-4add-8fec-6aaa5eb3c06c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6dfc81a3-73fa-448c-8144-aeb35bdf2852" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,10 +22,10 @@
     <MetadataSource Address="http://localhost:8733/Design_Time_Address/Books/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="da9abedc-5e44-4feb-b358-319e2ecd8f77" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Address/Books/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="2e0e3019-9812-49d0-bcd6-7d8f455534e3" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Address/Books/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="985d4055-a9f7-4ceb-83b8-5f1a27099834" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Address/Books/mex" />
-    <MetadataFile FileName="Library.WcfService.Interfaces.xsd" MetadataType="Schema" ID="b13724a6-6440-4c21-a6c3-ccfd180c0b04" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Address/Books/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="2b4ca948-7f81-4a8f-ab7e-d5cbc07e3f21" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Address/Books/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="50378e73-7fd9-4532-b89a-b987be10a161" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Address/Books/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="df3ccef2-ff3a-4220-b769-50df879be6b5" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Address/Books/mex" />
+    <MetadataFile FileName="Library.WcfService.DataContracts.xsd" MetadataType="Schema" ID="d06f543a-2031-4e52-8c27-581769303203" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Address/Books/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
