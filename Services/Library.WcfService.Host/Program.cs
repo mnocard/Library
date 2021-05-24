@@ -7,6 +7,10 @@ namespace Library.WcfService.Host
     {
         static void Main(string[] args)
         {
+            //BooksDBInitializer.BooksDBCreate();
+            //BooksDBInitializer.ChangeDBCollate();
+            //BooksDBInitializer.FillDbWithSqlScript();
+
             var bs = new BooksService();
             bs.Initialize();
         }

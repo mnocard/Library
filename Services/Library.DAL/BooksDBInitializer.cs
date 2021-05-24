@@ -57,7 +57,7 @@ namespace Library.DAL
             {
                 using (var dbContextTransaction = db.Database.BeginTransaction())
                 {
-                    var script = File.ReadAllText(_HomePathToSQLScript, Encoding.Default);
+                    var script = File.ReadAllText(_WorkPathToSQLScript, Encoding.Default);
                     var parts = script.Split(new string[] { "GO" }, StringSplitOptions.RemoveEmptyEntries);
 
                     foreach (var part in parts)
