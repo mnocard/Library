@@ -1,7 +1,5 @@
-﻿using Library.WcfService.Host.DBService;
-using Library.WcfService.Host.HostService;
-
-using System.Threading.Tasks;
+﻿using Library.DAL;
+using Library.WcfService.Host.DBService;
 
 namespace Library.WcfService.Host
 {

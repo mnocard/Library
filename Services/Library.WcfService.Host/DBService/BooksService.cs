@@ -19,7 +19,12 @@ namespace Library.WcfService.Host.DBService
 
 			try
 			{
-				selfHost.AddServiceEndpoint(typeof(IBooksService), new BasicHttpBinding(), _ServiceAddress);
+				WSHttpBinding binding = new WSHttpBinding();
+				binding.OpenTimeout = new TimeSpan(0, 10, 0);
+				binding.CloseTimeout = new TimeSpan(0, 10, 0);
+				binding.SendTimeout = new TimeSpan(0, 10, 0);
+				binding.ReceiveTimeout = new TimeSpan(0, 10, 0);
+				selfHost.AddServiceEndpoint(typeof(IBooksService), binding, _ServiceAddress);
 				var smb = new ServiceMetadataBehavior();
 				smb.HttpGetEnabled = true;
 				selfHost.Description.Behaviors.Add(smb);

@@ -12,6 +12,9 @@ namespace Library.DAL
 {
     public class BooksDBInitializer : IDesignTimeDbContextFactory<BooksDBContext>
     {
+        private const string _HomePathToSQLScript = @"D:\Script.SQL";
+        private const string _WorkPathToSQLScript = @"L:\Downloads\Insert (1).SQL";
+
         public BooksDBContext CreateDbContext(string[] args)
         {
             var configBuilder = new ConfigurationBuilder()
@@ -54,7 +57,7 @@ namespace Library.DAL
             {
                 using (var dbContextTransaction = db.Database.BeginTransaction())
                 {
-                    var script = File.ReadAllText(@"L:\Downloads\Insert (1).SQL", Encoding.Default);
+                    var script = File.ReadAllText(_HomePathToSQLScript, Encoding.Default);
                     var parts = script.Split(new string[] { "GO" }, StringSplitOptions.RemoveEmptyEntries);
 
                     foreach (var part in parts)

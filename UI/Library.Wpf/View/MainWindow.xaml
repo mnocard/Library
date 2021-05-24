@@ -19,26 +19,21 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="8*" />
         </Grid.RowDefinitions>
-        <TextBox
+        <Button
             Grid.Row="0"
             Grid.Column="0"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch"
-            HorizontalContentAlignment="Center"
-            VerticalContentAlignment="Center"
-            Text="{Binding Path=NumA}" />
-        <TextBox
+            Command="{Binding GetBooksWithoutAuthorCommand}"
+            Content="Книги без указания автора" />
+        <Button
             Grid.Row="0"
             Grid.Column="1"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch"
-            HorizontalContentAlignment="Center"
-            VerticalContentAlignment="Center"
-            Text="{Binding Path=NumB}" />
+            Command="{Binding GetBooksWithFewGenresCommand}"
+            Content="Книги с несколькими жанрами" />
         <Button
             Grid.Row="0"
             Grid.Column="2"
-            Command="{Binding ServiceAddTestCommand}"
-            Content="Test set title" />
+            Command="{Binding GetPublichsersBooksCommand}"
+            Content="Книги разных издательств" />
+        <DataGrid Grid.ColumnSpan="3" Grid.Row="1" ItemsSource="{Binding Books}"/>
     </Grid>
 </Window>

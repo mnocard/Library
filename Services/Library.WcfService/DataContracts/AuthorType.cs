@@ -5,6 +5,9 @@ using System.Runtime.Serialization;
 namespace Library.WcfService.Interfaces
 {
     [DataContract]
+    [KnownType(typeof(List<Authors_BooksType>))]
+    [KnownType(typeof(Authors_BooksType))]
+
     public class AuthorType
     {
         [DataMember]
@@ -20,14 +23,9 @@ namespace Library.WcfService.Interfaces
         public string MiddleName { get; set; }
 
         [DataMember]
-        public DateTime? Birthday { get; set; }
+        public DateTime Birthday { get; set; }
 
         [DataMember]
-        public List<Authors_BooksType> Authors_Books { get; set; }
-
-        public AuthorType()
-        {
-            Authors_Books = new List<Authors_BooksType>();
-        }
+        public List<Authors_BooksType> Authors_Books { get; set; } = new List<Authors_BooksType>();
     }
 }
