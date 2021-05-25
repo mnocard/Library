@@ -17,8 +17,8 @@ namespace Library.WcfService.DataContractExtensions
             {
                 BookID = gb.BookID,
                 GenreName = gb.GenreName,
-                Books = gb.Books.FromDCT(),
-                Genre = gb.Genre.FromDCT(),
+                //Books = gb.Books.FromDCT(),
+                //Genre = gb.Genre.FromDCT(),
             };
         }
 
@@ -30,8 +30,8 @@ namespace Library.WcfService.DataContractExtensions
             {
                 BookID = gb.BookID,
                 GenreName = gb.GenreName,
-                Books = gb.Books.ToDCT(),
-                Genre = gb.Genre.ToDCT(),
+                //Books = gb.Books.ToDCT(),
+                //Genre = gb.Genre.ToDCT(),
             };
         }
 
