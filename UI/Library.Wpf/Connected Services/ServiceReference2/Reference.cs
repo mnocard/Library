@@ -15,7 +15,7 @@ namespace Library.Wpf.ServiceReference2 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="BookType", Namespace="http://schemas.datacontract.org/2004/07/Library.WcfService.Interfaces")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BookType", Namespace="http://schemas.datacontract.org/2004/07/Library.WcfService.DataContracts")]
     [System.SerializableAttribute()]
     public partial class BookType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -39,6 +39,9 @@ namespace Library.Wpf.ServiceReference2 {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Library.Wpf.ServiceReference2.PublisherType PublisherField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PublisherNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string YearField;
@@ -132,6 +135,19 @@ namespace Library.Wpf.ServiceReference2 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PublisherName {
+            get {
+                return this.PublisherNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PublisherNameField, value) != true)) {
+                    this.PublisherNameField = value;
+                    this.RaisePropertyChanged("PublisherName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Year {
             get {
                 return this.YearField;
@@ -156,7 +172,7 @@ namespace Library.Wpf.ServiceReference2 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PublisherType", Namespace="http://schemas.datacontract.org/2004/07/Library.WcfService.Interfaces")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PublisherType", Namespace="http://schemas.datacontract.org/2004/07/Library.WcfService.DataContracts")]
     [System.SerializableAttribute()]
     public partial class PublisherType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -265,7 +281,7 @@ namespace Library.Wpf.ServiceReference2 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Authors_BooksType", Namespace="http://schemas.datacontract.org/2004/07/Library.WcfService.Interfaces")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Authors_BooksType", Namespace="http://schemas.datacontract.org/2004/07/Library.WcfService.DataContracts")]
     [System.SerializableAttribute()]
     public partial class Authors_BooksType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -358,7 +374,7 @@ namespace Library.Wpf.ServiceReference2 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Genres_BooksType", Namespace="http://schemas.datacontract.org/2004/07/Library.WcfService.Interfaces")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Genres_BooksType", Namespace="http://schemas.datacontract.org/2004/07/Library.WcfService.DataContracts")]
     [System.SerializableAttribute()]
     public partial class Genres_BooksType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -451,7 +467,7 @@ namespace Library.Wpf.ServiceReference2 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AuthorType", Namespace="http://schemas.datacontract.org/2004/07/Library.WcfService.Interfaces")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AuthorType", Namespace="http://schemas.datacontract.org/2004/07/Library.WcfService.DataContracts")]
     [System.SerializableAttribute()]
     public partial class AuthorType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -576,7 +592,7 @@ namespace Library.Wpf.ServiceReference2 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="GenreType", Namespace="http://schemas.datacontract.org/2004/07/Library.WcfService.Interfaces")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GenreType", Namespace="http://schemas.datacontract.org/2004/07/Library.WcfService.DataContracts")]
     [System.SerializableAttribute()]
     public partial class GenreType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         

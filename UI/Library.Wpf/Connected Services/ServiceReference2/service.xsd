@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import namespace="http://schemas.datacontract.org/2004/07/Library.WcfService.Interfaces" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Library.WcfService.DataContracts" />
   <xs:element name="GetBooksWithoutAuthor">
     <xs:complexType>
       <xs:sequence />
@@ -9,7 +9,7 @@
   <xs:element name="GetBooksWithoutAuthorResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Library.WcfService.Interfaces" minOccurs="0" name="GetBooksWithoutAuthorResult" nillable="true" type="q1:ArrayOfBookType" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Library.WcfService.DataContracts" minOccurs="0" name="GetBooksWithoutAuthorResult" nillable="true" type="q1:ArrayOfBookType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -21,7 +21,7 @@
   <xs:element name="GetBooksWithFewGenresResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Library.WcfService.Interfaces" minOccurs="0" name="GetBooksWithFewGenresResult" nillable="true" type="q2:ArrayOfBookType" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Library.WcfService.DataContracts" minOccurs="0" name="GetBooksWithFewGenresResult" nillable="true" type="q2:ArrayOfBookType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -33,7 +33,7 @@
   <xs:element name="GetPublichsersBooksResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Library.WcfService.Interfaces" minOccurs="0" name="GetPublichsersBooksResult" nillable="true" type="q3:ArrayOfPublisherType" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Library.WcfService.DataContracts" minOccurs="0" name="GetPublichsersBooksResult" nillable="true" type="q3:ArrayOfPublisherType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

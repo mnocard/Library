@@ -3,7 +3,7 @@ using System.Linq;
 
 using Library.Domain.Connections;
 using Library.Domain.Entities;
-using Library.WcfService.Interfaces;
+using Library.WcfService.DataContracts;
 
 namespace Library.WcfService.DataContractExtensions
 {
@@ -17,8 +17,8 @@ namespace Library.WcfService.DataContractExtensions
             {
                 BookID = gb.BookID,
                 GenreName = gb.GenreName,
-                Books = gb.Books.FromDCT(),
-                Genre = gb.Genre.FromDCT(),
+                //Books = gb.Books.FromDCT(),
+                //Genre = gb.Genre.FromDCT(),
             };
         }
 
@@ -30,8 +30,8 @@ namespace Library.WcfService.DataContractExtensions
             {
                 BookID = gb.BookID,
                 GenreName = gb.GenreName,
-                Books = gb.Books.ToDCT(),
-                Genre = gb.Genre.ToDCT(),
+                //Books = gb.Books.ToDCT(),
+                //Genre = gb.Genre.ToDCT(),
             };
         }
 
@@ -101,6 +101,7 @@ namespace Library.WcfService.DataContractExtensions
                 Description = b.Description,
                 Name = b.Name,
                 Year = b.Year,
+                PublisherName = b.PublisherName,
                 Publisher = b.Publisher.FromDCT(),
                 Authors_Books = b.Authors_Books.Select(FromDCT).ToList(),
                 Genres_Books = b.Genres_Books.Select(FromDCT).ToList(),
@@ -117,7 +118,7 @@ namespace Library.WcfService.DataContractExtensions
                 Description = b.Description,
                 Name = b.Name,
                 Year = b.Year,
-                Publisher = b.Publisher.ToDCT(),
+                PublisherName = b.PublisherName,
                 Authors_Books = b.Authors_Books.Select(ToDCT).ToList(),
                 Genres_Books = b.Genres_Books.Select(ToDCT).ToList(),
             };

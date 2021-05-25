@@ -30,7 +30,7 @@ namespace Library.DAL.Service
         {
             using (var db = new BooksDBInitializer().CreateDbContext(null))
             {
-                return db.Publishers.Include(p => p.Books).ToList();
+                return db.Publishers.Include(p => p.Books).ThenInclude(b => b.Genres_Books).ToList();
             }
         }
     }

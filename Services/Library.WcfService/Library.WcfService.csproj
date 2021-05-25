@@ -67,7 +67,7 @@
     <Compile Include="Interfaces\IBooksService.cs" />
     <Compile Include="Interfaces\ICalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Books.cs" />
+    <Compile Include="Services\BooksService.cs" />
     <Compile Include="Services\Calculator.cs" />
   </ItemGroup>
   <ItemGroup>

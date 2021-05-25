@@ -3,14 +3,15 @@ using System.Linq;
 
 using Library.DAL.Service;
 using Library.WcfService.DataContractExtensions;
+using Library.WcfService.DataContracts;
 using Library.WcfService.Interfaces;
 
 namespace Library.WcfService.Services
 {
-    public class Books : IBooksService
+    public class BooksService : IBooksService
     {
         private BooksDBService _Service;
-        public Books()
+        public BooksService()
         {
             _Service = new BooksDBService();
         }

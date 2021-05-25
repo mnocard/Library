@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.ServiceModel;
 
+using Library.WcfService.DataContracts;
+
 namespace Library.WcfService.Interfaces
 {
     [ServiceContract]

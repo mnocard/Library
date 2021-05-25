@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace Library.WcfService.Interfaces
+namespace Library.WcfService.DataContracts
 {
     [DataContract]
     [KnownType(typeof(GenreType))]

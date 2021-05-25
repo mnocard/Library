@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace Library.WcfService.Interfaces
+namespace Library.WcfService.DataContracts
 {
     [DataContract]
     [KnownType(typeof(List<Genres_BooksType>))]

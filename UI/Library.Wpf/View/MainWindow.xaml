@@ -9,31 +9,50 @@
     Height="450"
     DataContext="{Binding MainWindowViewModel, Source={StaticResource Locator}}"
     mc:Ignorable="d">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="8*" />
-        </Grid.RowDefinitions>
-        <Button
-            Grid.Row="0"
-            Grid.Column="0"
-            Command="{Binding GetBooksWithoutAuthorCommand}"
-            Content="Книги без указания автора" />
-        <Button
-            Grid.Row="0"
-            Grid.Column="1"
-            Command="{Binding GetBooksWithFewGenresCommand}"
-            Content="Книги с несколькими жанрами" />
-        <Button
-            Grid.Row="0"
-            Grid.Column="2"
-            Command="{Binding GetPublichsersBooksCommand}"
-            Content="Книги разных издательств" />
-        <DataGrid Grid.ColumnSpan="3" Grid.Row="1" ItemsSource="{Binding Books}"/>
-    </Grid>
+    <TabControl>
+        <TabItem Header="Книги">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="8*" />
+                </Grid.RowDefinitions>
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Command="{Binding GetBooksWithoutAuthorCommand}"
+                    Content="Книги без указания автора" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Command="{Binding GetBooksWithFewGenresCommand}"
+                    Content="Книги с несколькими жанрами" />
+                <DataGrid AutoGenerateColumns="False" Grid.ColumnSpan="2" Grid.Row="1" ItemsSource="{Binding Books}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="Auto"/>
+                        <DataGridTextColumn Header="Издатель" Binding="{Binding PublisherName}" Width="Auto"/>
+                        <DataGridTextColumn Header="Год" Binding="{Binding Year}" Width="Auto"/>
+                        <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="Auto"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Издатели">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button
+                    Grid.Row="0"
+                    Command="{Binding GetPublichsersBooksCommand}"
+                    CommandParameter="{Binding ElementName=dgr}"
+                    Content="Книги разных издательств" />
+                <DataGrid Grid.Row="1" x:Name="dgr" AutoGenerateColumns="True" />
+            </Grid>
+        </TabItem>
+    </TabControl>
 </Window>

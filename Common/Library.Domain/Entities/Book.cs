@@ -23,6 +23,9 @@ namespace Library.Domain.Entities
 
         public List<Authors_Books> Authors_Books { get; set; }
 
+        public string PublisherName { get; set; }
+
+        [ForeignKey(nameof(PublisherName))]
         public Publisher Publisher { get; set; }
 
         public Book()
