@@ -49,15 +49,9 @@
                 <Button
                     Grid.Row="0"
                     Command="{Binding GetPublichsersBooksCommand}"
+                    CommandParameter="{Binding ElementName=dgr}"
                     Content="Книги разных издательств" />
-                <DataGrid Grid.Row="1" ItemsSource="{Binding Publishers}" AutoGenerateColumns="False">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Названия" Binding="{Binding }"/>
-                        <DataGridTextColumn Header="Описание" Binding="{Binding PublisherName}"/>
-                        <DataGridTextColumn Header="Описание" Binding="{Binding Year}"/>
-                        <DataGridTextColumn Header="Описание" Binding="{Binding Description}"/>
-                    </DataGrid.Columns>
-                </DataGrid>
+                <DataGrid Grid.Row="1" x:Name="dgr" AutoGenerateColumns="True" />
             </Grid>
         </TabItem>
     </TabControl>

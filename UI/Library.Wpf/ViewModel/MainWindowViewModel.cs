@@ -1,10 +1,14 @@
 ﻿using DOfficeCore.Infrastructure.Commands;
 using DOfficeCore.ViewModels.Core;
+
 using Library.Wpf.Infrastructure.Interfaces;
 using Library.Wpf.Model;
 
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Linq;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace Library.Wpf.ViewModel
@@ -30,7 +34,19 @@ namespace Library.Wpf.ViewModel
 
         #region Свойства
 
-        #region BooksWithoutAuthors : IEnumerable<Book> - Книги
+        #region DataTable : DataTable - Данные для таблицы издателств с количество книг по жанрам
+
+        /// <summary>Данные для таблицы издателств с количество книг по жанрам</summary>
+        private DataTable _DataTable;
+
+        /// <summary>Данные для таблицы издателств с количество книг по жанрам</summary>
+        public DataTable DataTable
+        {
+            get => _DataTable;
+            set => Set(ref _DataTable, value);
+        }
+
+        #region BooksWithoutAuthors : ObservableCollection<Book> - Книги
 
         /// <summary>Книги без авторов</summary>
         private ObservableCollection<Book> _Books;
@@ -43,18 +59,6 @@ namespace Library.Wpf.ViewModel
         }
 
         #endregion
-
-        #region Publishers : IEnumerable<PublisherType> - Издательства
-
-        /// <summary>Издательства</summary>
-        private ObservableCollection<Publisher> _Publishers;
-
-        /// <summary>Издательства</summary>
-        public ObservableCollection<Publisher> Publishers
-        {
-            get => _Publishers;
-            set => Set(ref _Publishers, value);
-        }
 
         #endregion
 
@@ -150,7 +154,6 @@ namespace Library.Wpf.ViewModel
         {
             var service = _ServiceManager.GetBooksService();
             Books = new ObservableCollection<Book>(service.GetBooksWithoutAuthor().Select(b => b.ToVM()));
-            var x = 0;
         }
         private bool CanGetBooksWithoutAuthorCommandExecute(object parameter) => true;
 
@@ -175,8 +178,39 @@ namespace Library.Wpf.ViewModel
         /// <summary>Количество книг, написанных в определенном жанре для каждого из издательств</summary>
         private void OnGetPublichsersBooksCommandExecuted(object parameter)
         {
-            var service = _ServiceManager.GetBooksService();
-            Publishers = new ObservableCollection<Publisher>(service.GetPublichsersBooks().Select(b => b.ToVM()));
+            if (parameter is DataGrid dgrdMaGrid)
+            {
+                var service = _ServiceManager.GetBooksService();
+                var publishers = service.GetPublichsersBooks().Select(b => b.ToVM()).ToList();
+                var genres = publishers.SelectMany(p => p.Books.SelectMany(b => b.Genres.Select(g => g.GenreName))).Distinct().ToList();
+
+                DataTable = new DataTable();
+                DataTable.Columns.Add(new DataColumn("Издатели"));
+                foreach (var item in genres)
+                {
+                    DataTable.Columns.Add(new DataColumn(item));
+                }
+
+                foreach (var publisher in publishers)
+                {
+                    var newRow = DataTable.NewRow();
+                    newRow[0] = publisher.PublisherName;
+                    for (int i = 1; i < DataTable.Columns.Count; i++)
+                    {
+                        newRow[i] = 0;
+                        foreach (var book in publisher.Books)
+                        {
+                            if (book.Genres.Any(b => b.GenreName == DataTable.Columns[i].ColumnName))
+                            {
+                                newRow[i] = int.Parse(newRow[i].ToString()) + 1;
+                            }
+                        }
+                    }
+
+                    DataTable.Rows.Add(newRow);
+                }
+                dgrdMaGrid.ItemsSource = DataTable.AsDataView();
+            }
         }
         private bool CanGetPublichsersBooksCommandExecute(object parameter) => true;
 
