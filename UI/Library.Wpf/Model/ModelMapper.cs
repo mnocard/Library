@@ -36,8 +36,7 @@ namespace Library.Wpf.Model
             {
                 book.Genres.Add(new Genre
                 {
-                    Description = genre.Genre.Description,
-                    GenreName = genre.Genre.GenreName,
+                    GenreName = genre.GenreName,
                 });
             }
 
