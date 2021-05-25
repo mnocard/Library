@@ -8,10 +8,10 @@ using Library.WcfService.Interfaces;
 
 namespace Library.WcfService.Services
 {
-    public class Books : IBooksService
+    public class BooksService : IBooksService
     {
         private BooksDBService _Service;
-        public Books()
+        public BooksService()
         {
             _Service = new BooksDBService();
         }

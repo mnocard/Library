@@ -15,7 +15,7 @@ namespace Library.WcfService.Host.DBService
 		public void Initialize()
 		{
 			var baseAddress = new Uri(_HostUri);
-			var selfHost = new ServiceHost(typeof(Books), baseAddress);
+			var selfHost = new ServiceHost(typeof(Services.BooksService), baseAddress);
 
 			try
 			{
